@@ -1,5 +1,5 @@
 package com.empresa.pedidos.dominio;
-
+import com.empresa.pedidos.infraestructura.persistencia.RepositorioPedidosJpa;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
