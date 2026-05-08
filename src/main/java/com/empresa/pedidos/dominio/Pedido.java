@@ -23,6 +23,4 @@ public class Pedido {
         this.subtotal = subtotal;
         this.estado = EstadoPedido.PENDIENTE;
     }
-    // Violacion intencional - usar la clase de infraestructura
-    private transient RepositorioPedidosJpa violacionIntencional;
 }
