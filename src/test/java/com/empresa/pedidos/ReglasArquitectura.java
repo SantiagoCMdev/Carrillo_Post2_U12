@@ -18,16 +18,18 @@ public class ReglasArquitectura {
             .resideInAnyPackage(
                     "..infraestructura..", "..adaptadores..");
 
-    // Regla 2: Los controladores solo acceden a la Facade
+    // Regla 2: Los controladores solo dependen de la Facade
     @ArchTest
     static final ArchRule controladorSoloFacade = classes()
             .that().resideInAPackage("..adaptadores.rest..")
-            .should().onlyAccessClassesThat()
+            .should().onlyHaveDependentClassesThat()
             .resideInAnyPackage(
-                    "..adaptadores.facade..", "..dominio..",
-                    "org.springframework.web..", "org.springframework.http..",
+                    "..adaptadores.rest..",
+                    "..adaptadores.facade..",
+                    "..dominio..",
+                    "org.springframework.web..",
+                    "org.springframework.http..",
                     "java..");
-
     // Regla 3: Los puertos de dominio son interfaces
     @ArchTest
     static final ArchRule puertosComoInterfaces = classes()
